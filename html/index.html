@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RutaViva · Centro de Control de Operación</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="icon" type="image/x-icon" href="../img/logo-circular.png">
+</head>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <img src="../img/logo.png" alt="RutaViva" class="brand-logo">
+      <div class="brand-text">
+        <span class="brand-name">RutaViva</span>
+        <span class="brand-tag">Centro de Control</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <span class="nav-label">Operación</span>
+      <a class="nav-item is-active" href="#">
+        <svg viewBox="0 0 24 24" class="nav-icon"><path d="M3 13h4v8H3zM10 8h4v13h-4zM17 3h4v18h-4z"/></svg>
+        <span>Dashboard</span>
+      </a>
+      <a class="nav-item" href="#">
+        <svg viewBox="0 0 24 24" class="nav-icon"><path d="M4 16V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9M4 16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2M4 16l-1 4h18l-1-4M7.5 12.5h.01M16.5 12.5h.01"/></svg>
+        <span>Monitoreo de buses</span>
+      </a>
+      <a class="nav-item" href="#">
+        <svg viewBox="0 0 24 24" class="nav-icon"><path d="M4 20 9 4l3 12 3-8 5 12M4 20h16"/></svg>
+        <span>Rutas</span>
+      </a>
+      <a class="nav-item" href="#">
+        <svg viewBox="0 0 24 24" class="nav-icon"><circle cx="12" cy="10" r="3"/><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/></svg>
+        <span>Paraderos</span>
+      </a>
+
+      <span class="nav-label">Gestión</span>
+      <a class="nav-item" href="#">
+        <svg viewBox="0 0 24 24" class="nav-icon"><path d="M12 9v4l2.5 2.5M21 12a9 9 0 1 1-9-9"/><path d="M21 4v5h-5"/></svg>
+        <span>Alertas</span>
+        <span class="nav-badge">5</span>
+      </a>
+      <a class="nav-item" href="#">
+        <svg viewBox="0 0 24 24" class="nav-icon"><path d="M4 19V5M4 19h16M8 19v-6M12 19V9M16 19v-9"/></svg>
+        <span>Reportes</span>
+      </a>
+      <a class="nav-item" href="#">
+        <svg viewBox="0 0 24 24" class="nav-icon"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.7 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.13.42.4.79.76 1.05.32.24.7.38 1.09.38H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>
+        <span>Configuración</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="system-pulse">
+        <span class="pulse-dot"></span>
+        <div class="pulse-text">
+          <strong>Enlace satelital</strong>
+          <span>Latencia 340ms</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <div class="topbar-title">
+        <h1>Operación en Tiempo Real</h1>
+        <p class="topbar-meta">
+          Última actualización: <span id="lastUpdate">20:42:18</span>
+          <span class="dot-sep">·</span>
+          <span class="status-chip status-chip--ok"><span class="status-dot"></span>Sistema conectado</span>
+        </p>
+      </div>
+      <div class="topbar-actions">
+        <div class="datetime" id="liveClock">
+          <span id="clockTime">20:42:18</span>
+          <span id="clockDate">mié, 26 ago 2026</span>
+        </div>
+        <button class="icon-btn" aria-label="Notificaciones">
+          <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="icon-btn-badge">3</span>
+        </button>
+        <div class="operator">
+          <div class="operator-avatar">MC</div>
+          <div class="operator-info">
+            <strong>M. Cárdenas</strong>
+            <span>Operador · Turno noche</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- CRITICAL ALERT STRIP -->
+      <div class="critical-strip" id="criticalStrip">
+        <div class="critical-icon">
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+        </div>
+        <div class="critical-body">
+          <strong>ALERTA OPERATIVA · Ruta R10</strong>
+          <span>Accidente de tránsito reportado en corredor principal (Av. Central con 45). Presenta retrasos y posible desvío.</span>
+        </div>
+        <span class="critical-time">hace 4 min</span>
+        <button class="critical-action">Ver detalle</button>
+      </div>
+
+      <!-- KPI ROW -->
+      <section class="kpi-grid">
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-icon kpi-icon--cerulean">
+              <svg viewBox="0 0 24 24"><path d="M4 16V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9M4 16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2M4 16l-1 4h18l-1-4M7.5 12.5h.01M16.5 12.5h.01"/></svg>
+            </span>
+            <span class="kpi-label">Buses Activos</span>
+          </div>
+          <div class="kpi-value">138</div>
+          <div class="kpi-sub">
+            <span class="kpi-pill kpi-pill--seaweed">92% de la flota</span>
+          </div>
+          <div class="kpi-split">
+            <div class="split-bar">
+              <span class="split-seg split-seg--active" style="width:92%"></span>
+            </div>
+            <div class="split-legend">
+              <span><i class="dot dot--seaweed"></i>127 en operación</span>
+              <span><i class="dot dot--slate"></i>11 estacionados</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-icon kpi-icon--seaweed">
+              <svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg>
+            </span>
+            <span class="kpi-label">Cumplimiento de Itinerario</span>
+          </div>
+          <div class="kpi-value">97.4<span class="kpi-unit">%</span></div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width:97.4%"></div>
+          </div>
+          <div class="kpi-sub">
+            <span class="kpi-trend kpi-trend--up">▲ +1.8% vs. período anterior</span>
+          </div>
+        </article>
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-icon kpi-icon--lime">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            </span>
+            <span class="kpi-label">Retrasos Activos</span>
+          </div>
+          <div class="kpi-value">5</div>
+          <div class="kpi-sub">
+            <span class="kpi-pill kpi-pill--critical">2 críticos</span>
+            <span class="kpi-pill kpi-pill--muted">3 leves</span>
+          </div>
+        </article>
+
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-icon kpi-icon--cerulean">
+              <svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-14h-7z"/></svg>
+            </span>
+            <span class="kpi-label">Frecuencia / Headway</span>
+          </div>
+          <div class="kpi-value">8.4<span class="kpi-unit">min</span></div>
+          <div class="headway-gauge">
+            <div class="gauge-track">
+              <span class="gauge-target" style="left:50%"></span>
+              <span class="gauge-fill" style="width:58%"></span>
+            </div>
+          </div>
+          <div class="kpi-sub">
+            <span class="kpi-note">Objetivo: 8.0 min</span>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- MAP + FLEET PANEL -->
+      <section class="map-fleet-row">
+
+        <div class="panel map-panel">
+          <div class="panel-head">
+            <div>
+              <h2>Red Operativa</h2>
+              <p class="panel-sub">Vista esquemática · 5 corredores activos</p>
+            </div>
+            <div class="map-legend">
+              <span><i class="dot dot--seaweed"></i>A tiempo</span>
+              <span><i class="dot dot--lime"></i>Próximo</span>
+              <span><i class="dot dot--amber"></i>Retrasado</span>
+              <span><i class="dot dot--red"></i>Fuera de servicio</span>
+            </div>
+          </div>
+          <div class="map-canvas" id="mapCanvas">
+            <svg id="networkMap" viewBox="0 0 760 560" preserveAspectRatio="xMidYMid meet"></svg>
+          </div>
+        </div>
+
+        <div class="panel fleet-panel">
+          <div class="panel-head">
+            <div>
+              <h2>Estado de la Flota</h2>
+              <p class="panel-sub">138 unidades · actualizado en vivo</p>
+            </div>
+            <div class="fleet-filter">
+              <button class="chip-filter is-active" data-filter="all">Todos</button>
+              <button class="chip-filter" data-filter="retrasado">Retrasos</button>
+            </div>
+          </div>
+          <div class="fleet-list" id="fleetList"><!-- rows injected by JS --></div>
+        </div>
+
+      </section>
+
+      <!-- CHARTS ROW -->
+      <section class="charts-row">
+
+        <div class="panel headway-panel">
+          <div class="panel-head">
+            <div>
+              <h2>Frecuencia de Servicio — Headway</h2>
+              <p class="panel-sub">Intervalo entre buses consecutivos · Ruta R10</p>
+            </div>
+            <div class="map-legend">
+              <span><i class="dot dot--cerulean"></i>Headway real</span>
+              <span><i class="dot dot--slate-line"></i>Objetivo</span>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <svg id="headwayChart" viewBox="0 0 680 260" preserveAspectRatio="none"></svg>
+          </div>
+          <div class="headway-flags">
+            <span class="flag flag--bunch"><i class="dot dot--amber"></i>Bus bunching detectado · 18:40</span>
+            <span class="flag flag--gap"><i class="dot dot--cerulean"></i>Gap excesivo · 19:55</span>
+          </div>
+        </div>
+
+        <div class="panel trend-panel">
+          <div class="panel-head">
+            <div>
+              <h2>Desempeño Operativo</h2>
+              <p class="panel-sub">Últimas 8 horas</p>
+            </div>
+          </div>
+          <div class="trend-tabs">
+            <button class="chip-filter is-active">Cumplimiento</button>
+            <button class="chip-filter">Pasajeros</button>
+          </div>
+          <div class="chart-wrap chart-wrap--small">
+            <svg id="trendChart" viewBox="0 0 340 200" preserveAspectRatio="none"></svg>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ALERTS PANEL -->
+      <section class="panel alerts-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Alertas Operativas</h2>
+            <p class="panel-sub">Novedades reportadas en la vía</p>
+          </div>
+          <span class="kpi-pill kpi-pill--critical">2 críticas activas</span>
+        </div>
+        <div class="alerts-grid" id="alertsGrid"><!-- injected --></div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
